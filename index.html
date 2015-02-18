@@ -2,11 +2,7 @@
 <html>
  <head>
     <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0" />
-    <script>
-        function(){
-            document.getElementById('bg').play();
-        }();
-        
+    <script>     
         var blowHorn = function() {
           document.getElementById('horn').play();
         };
@@ -16,9 +12,9 @@
 
  <body>
 
-     <div onclick="javascript:blowHorn();" width="100%" align="center"><img src="speaker.png" /><br>Blow Horn</div>
+     <div onclick="javascript:blowHorn();" align="center"><img src="speaker.png" /><br>Blow Horn</div>
     
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <br><br><br><br><br><br><br><br><br><br><br><br><br>
     
     Background Noise:<br>
     <audio controls loop autoplay id="bg">
