@@ -12,23 +12,22 @@
 
  <body>
 
-    <a href="javascript:blowHorn();"><img src="speaker.png" /></a>
+     <div onclick="javascript:blowHorn();" width="100%" align="center"><img src="speaker.png" /><br>Blow Horn</div>
     
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    Background Noise:<br>
+    <audio controls loop autoplay id="bg">
+      <source src="bg.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+        
+    <br><br>
     
     Horn:<br>
     <audio controls id="horn">
       <source src="horn.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-
-    <br><br>
-
-    Background Noise:<br>
-    <audio controls loop autoplay id="bg">
-      <source src="bg.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
  </body>
 </html>
