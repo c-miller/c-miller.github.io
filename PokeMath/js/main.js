@@ -4,6 +4,7 @@ $(function() {
 	var math = "+1";
 	generateProblems(math);
 
+	//Button bar at top
 	$('.mathButtons a').click(function() {
 		$('.mathButtons a.btn-danger').removeClass('btn-danger').addClass('btn-default');
 		var $this = $(this);
@@ -13,21 +14,24 @@ $(function() {
 		generateProblems(math);
 	});
 
+	//Start button
+	$('#start').click(function() {
+		var $this = $(this);
+		$("#timer").toggleClass('hidden');
+		console.log("TIMER");
+	});
+
 });
 
 
-var problems = [];
 function generateProblems(math) {
-	problems = [];
+	var problems = [];
 	var a = Number(math);
-	//TODO: make the answers lower than some number (12??) somehow
-	//var ceiling = 12 - a;
-	//console.log(ceiling);
 
-	for (var i=0; i<10; i++) {
-		var b = Math.floor(Math.random() * 10) + 1;
+	for (var b=1; b<11; b++) {
 		var c = a + b;
 		var p = {};
+
 		//Randomize a+b or b+a order
 		var ab = Math.random() >= 0.5;
 		if (ab) {
@@ -38,16 +42,40 @@ function generateProblems(math) {
 			p['b'] = a;
 		}
 		p['c'] = c;
-		problems[i] = p;
+		problems.push(p);
 	}
-	console.log(problems);
 
-	for (var j=0; j<problems.length; j++) {
-		addProblemDiv(problems[j]);
-	}
+	problems = shuffle(problems);
+	//console.log(problems);
+
+
+	addProblemDivs(problems);
 
 }
 
-function addProblemDiv(problemObj) {
-	//TODO: Add to DOM
+function addProblemDivs(problems) {
+	for (var j=0; j<problems.length; j++) {
+		var problemObj = problems[j];
+		$('#problemHolder').append( "<div class='problem'><p>" + problemObj.a + "</p><p>+</p><p>" + problemObj.b + 
+			"</p><br><hr><input class='form-control form-control-lg answer' type='number' data-answer='" + problemObj.c + "'></div><br>" );
+	}
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
