@@ -56,7 +56,7 @@ function generateProblems(math) {
 function addProblemDivs(problems) {
 	for (var j=0; j<problems.length; j++) {
 		var problemObj = problems[j];
-		$('#problemHolder').append( "<div class='problem'><p>" + problemObj.a + "</p><p>+</p><p>" + problemObj.b + 
+		$('#problemHolder').append( "<div class='problem panel'><p>" + problemObj.a + "</p><p>+</p><p>" + problemObj.b + 
 			"</p><br><hr><input class='form-control form-control-lg answer' type='number' data-answer='" + problemObj.c + "'></div><br>" );
 	}
 }

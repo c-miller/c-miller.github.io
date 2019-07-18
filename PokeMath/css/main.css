@@ -4,7 +4,6 @@
    Author's custom styles
    ========================================================================== */
 
-.problem { width: 75px; }
 .problem p:nth-child(1) { text-align: right; }
 .problem p:nth-child(2) { float: left; }
 .problem p:nth-child(3) { float: right; }
